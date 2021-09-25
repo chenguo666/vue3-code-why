@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <h2 class="counter">0</h2>
+  <button>+</button>
+  <button>-</button>
+  <script>
+    const counter = document.querySelector('.counter')
+    const btnadd = document.getElementsByTagName('button')[0]
+    const btndel = document.getElementsByTagName('button')[1]
+    btnadd.addEventListener('click', function() {
+      counter.innerText++
+    })
+    btndel.addEventListener('click', function() {
+      counter.innerText--
+    })
+  </script>
+</body>
+
+</html>

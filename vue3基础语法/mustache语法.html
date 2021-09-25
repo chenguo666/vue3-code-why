@@ -12,6 +12,9 @@
   <div id="app"></div>
   <template id="my-app">
       <h2>{{msg}}</h2>
+      <h2>{{100*2}}</h2>
+      <!-- v-cloak 元素没解析出来之前用的 解决屏幕闪动的好方法  大型、工程化的项目中不需要-->
+      <h2 v-cloak>{{100*2}}</h2>
     </template>
   <script src="https://unpkg.com/vue@next"></script>
   <script>

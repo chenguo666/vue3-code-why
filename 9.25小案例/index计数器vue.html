@@ -12,26 +12,38 @@
   <div id="app"></div>
   <script src="https://unpkg.com/vue@next"></script>
   <script>
+    //   声明式开发
     Vue.createApp({
-      template: `
+        // 会替换掉div 内的元素
+        template: `
                 <h2 >{{count}}</h2>
                 <button @click="add">+</button>
                 <button @click="del">-</button>
             `,
-      data() {
-        return {
-          count: 0
-        }
-      },
-      methods: {
-        add() {
-          this.count++
+        data() {
+          return {
+            count: 0
+          }
         },
-        del() {
-          this.count--
+        methods: {
+          add() {
+            this.count++
+          },
+          del() {
+            this.count--
+          }
         }
-      }
-    }).mount('#app')
+      }).mount('#app')
+      // 如何调试vue源码
+      /*
+      1.下载 vue-next 源码 推荐 git clone xxxx
+      对系统有要求 win8以上
+      yarn isntall  
+      node   得》=16.5.0   
+      然后 yarn run dev
+      会把包打到dist文件夹里的一个vue.global.js
+      就可以开启调试
+      */
   </script>
 </body>
 

@@ -17,6 +17,16 @@
       <h2 v-cloak>{{100*2}}</h2>
       <!-- 封装高级组件 -->
       <div :="info"></div>
+      <button
+        @="{
+          click:dodo,
+          mousemove:lili
+      }"
+      >
+        按钮
+      </button>
+      <!-- 默认传入event对象 -->
+      <button @click="somec($event,'coder')">event 参数</button>
     </template>
   <script src="https://unpkg.com/vue@next"></script>
   <script>
@@ -32,7 +42,18 @@
           }
         }
       },
-      methods() {}
+      methods: {
+        dodo() {
+          console.log('dodo')
+        },
+        lili() {
+          console.log('lili')
+        },
+        somec(event, a) {
+          console.log(event, a)
+        }
+        // 数组操作方法会生成新的数组的方法有 fitler concat slice
+      }
     }
     Vue.createApp(App).mount('#app')
   </script>

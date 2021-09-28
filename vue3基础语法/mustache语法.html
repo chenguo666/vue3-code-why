@@ -31,6 +31,13 @@
         <li v-for="item in letters">{{item}}</li>
       </ul>
       <button @click="addit">插入f</button>
+      <!--  -->
+      <!-- <h3>{{firstName +' '+ lastName}}</h3> -->
+      <h3>{{fullName}}</h3>
+      <!-- <h3>{{score >60 ? '及格':'不及格'}}</h3> -->
+      <h3>{{result}}</h3>
+      <!-- <h3>{{message.split("").reverse().join("")}}</h3> -->
+      <h3>{{messages}}</h3>
     </template>
   <script src="https://unpkg.com/vue@next"></script>
   <script>
@@ -44,8 +51,27 @@
             height: '800px',
             width: '500px'
           },
-          letters: ['a', 'b', 'c', 'd']
+          letters: ['a', 'b', 'c', 'd'],
+          firstName: 'chan',
+          lastName: 'last',
+          score: 80,
+          message: 'hello world'
         }
+      },
+      computed: {
+        //  1.俩各变量 firstname lastname 拼接显示
+        fullName() {
+          console.log(111)
+          return this.firstName + ' ' + this.lastName
+        },
+        //  2.一个分数 大于60 及格 反之不及格
+        result() {
+          return this.score > 60 ? '及格' : '不及格'
+        },
+        messages() {
+          return this.message.split('').reverse().join('')
+        }
+        //  3.msg 反转 或直接显示
       },
       methods: {
         dodo() {

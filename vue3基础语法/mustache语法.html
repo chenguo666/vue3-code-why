@@ -73,6 +73,14 @@
         }
         //  3.msg 反转 或直接显示
       },
+      watch: {
+        msg: {
+          handler(newValue, oldValue) {
+            console.log(newValue, oldValue)
+          },
+          immediate: true
+        }
+      },
       methods: {
         dodo() {
           console.log('dodo')

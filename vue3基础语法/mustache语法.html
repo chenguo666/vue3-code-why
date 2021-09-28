@@ -27,6 +27,10 @@
       </button>
       <!-- 默认传入event对象 -->
       <button @click="somec($event,'coder')">event 参数</button>
+      <ul>
+        <li v-for="item in letters">{{item}}</li>
+      </ul>
+      <button @click="addit">插入f</button>
     </template>
   <script src="https://unpkg.com/vue@next"></script>
   <script>
@@ -39,7 +43,8 @@
             name: 'why',
             height: '800px',
             width: '500px'
-          }
+          },
+          letters: ['a', 'b', 'c', 'd']
         }
       },
       methods: {
@@ -51,6 +56,11 @@
         },
         somec(event, a) {
           console.log(event, a)
+        },
+        addit() {
+          // 没有key的时候 效率低下  原数组插入f c后移 移除d 然后再新增d进去
+          //   有key的情况下 调用另一个方法  从头部开始遍历 节点相同就继续遍历 有不一样就break跳出循环
+          this.letters.splice(2, 0, 'f')
         }
         // 数组操作方法会生成新的数组的方法有 fitler concat slice
       }

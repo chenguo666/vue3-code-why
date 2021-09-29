@@ -45,7 +45,8 @@
           <th>操作</th>
         </thead>
         <tbody>
-          <tr v-for="item,index in filterBooks" :key="item.id">
+            <template v-if="filterBooks.length>0">
+                <tr v-for="item,index in filterBooks" :key="item.id">
             <td>{{index+1}}</td>
             <td>{{item.name}}</td>
             <td>{{item.date}}</td>
@@ -65,7 +66,12 @@
       </table>
       <!-- vue3 不支持过滤器  推荐方法 1. 计算属性 2. 使用全局方法 -->
       <h1>总价：{{money}}</h1>
-    </template>
+            </template>
+  <template v-else>
+                 <h1>购物车为空</h1>
+             </template>
+
+  </template>
 
   <script src="https://unpkg.com/vue@next"></script>
   <script src="./index.js"></script>

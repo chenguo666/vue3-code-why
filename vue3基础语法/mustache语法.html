@@ -58,6 +58,18 @@
           message: 'hello world'
         }
       },
+      created() {
+        const unwatch = this.$watch(
+            'info',
+            function(newinfo, oldinfo) {
+              console.log(newinfo, oldinfo)
+            }, {
+              deep: true,
+              immediate: true
+            }
+          )
+          // unwatch() 可以取消监听
+      },
       computed: {
         //  1.俩各变量 firstname lastname 拼接显示
         fullName() {

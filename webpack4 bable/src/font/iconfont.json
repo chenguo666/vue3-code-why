@@ -1,0 +1,16 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "11806568",
+      "name": "烟感",
+      "font_class": "yangan",
+      "unicode": "e67d",
+      "unicode_decimal": 59005
+    }
+  ]
+}

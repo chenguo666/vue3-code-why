@@ -5,6 +5,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './build'),
     filename: 'bundle.js'
+      // assetModuleFilename: 'img/'
   },
   module: {
     rules: [{
@@ -24,15 +25,44 @@ module.exports = {
           }
         ]
       },
+      //   {
+      //     test: /\.(jpg|png|gif|svg|jpeg)$/,
+      //     use: {
+      //       loader: 'url-loader',
+      //       options: {
+      //         outputPath: 'img',
+      //         name: '[name]_[hash:6].[ext]',
+      //         limit: 50 * 1024
+      //       }
+      //     }
+      //   },
       {
         test: /\.(jpg|png|gif|svg|jpeg)$/,
-        use: {
-          loader: 'url-loader',
-          options: {
-            outputPath: 'img',
-            name: '[name]_[hash:6].[ext]',
-            limit: 50 * 1024
+        type: 'asset',
+        generator: {
+          filename: 'img/[name]_[hash:6][ext]'
+        },
+        parser: {
+          dataUrlCondition: {
+            maxSize: 50 * 1024
           }
+        }
+      },
+      //   {
+      //     test: /\.(eot|ttf|woff|woff2)$/,
+      //     use: {
+      //       loader: 'file-loader',
+      //       options: {
+      //         // outputPath: 'font',
+      //         name: 'font/[name]_[hash:6].[ext]'
+      //       }
+      //     }
+      //   },
+      {
+        test: /\.(eot|ttf|woff|woff2)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'font/[name]_[hash:6][ext]'
         }
       }
     ]

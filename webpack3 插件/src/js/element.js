@@ -18,6 +18,3 @@ document.body.appendChild(iEl)
 document.body.appendChild(divEl)
 document.body.appendChild(imgEl)
 document.body.appendChild(bgdivEl)
-const message = 'hello world'
-const names = ['chan', 'sdf', 'xcvb']
-names.forEach((item) => console.log(item))

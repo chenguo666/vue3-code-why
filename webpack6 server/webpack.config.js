@@ -6,12 +6,30 @@ const { DefinePlugin } = require('webpack')
 const { VueLoaderPlugin } = require('vue-loader/dist/index')
 
 module.exports = {
+  target: 'web',
   mode: 'development',
   devtool: 'source-map',
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './build'),
     filename: 'js/bundle.js'
+  },
+  devServer: {
+    // contentBase: './public'
+    hot: true,
+    port: 7777,
+    open: true,
+    compress: true,
+    proxy: {
+      '/api': {
+        target: 'https://localhost:8080',
+        pathRewrite: {
+          '^/api': ''
+        },
+        secure: false, //默认情况下不转发到https上
+        changeOrigin: true, //修改源
+      }
+    }
   },
   module: {
     rules: [{

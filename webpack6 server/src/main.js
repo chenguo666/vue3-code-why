@@ -2,7 +2,8 @@ import './js/element'
 // import { createApp } from 'vue/dist/vue.esm-bundler.js'
 import { createApp } from 'vue'
 import App from './vue/App.vue'
-console.log(666)
+import axios from 'axios'
+console.log(667776111)
 
 // vue代码
 // const app = createApp({
@@ -13,5 +14,11 @@ console.log(666)
 //     }
 //   }
 // })
+if (module.hot) {
+  module.hot.accept('./js/element.js'),
+    () => {
+      console.log('模块发生更新！')
+    }
+}
 const app = createApp(App)
 app.mount('#app')

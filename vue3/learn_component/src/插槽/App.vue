@@ -1,18 +1,23 @@
 <template>
   <div id="app">
     <h2>插槽</h2>
-    <nav-bar :name="name">
-      <template v-slot:left>
+    <show-names :names="names">
+      <template v-slot:why="slotProps">
+        <button>{{ slotProps.item }}-{{ slotProps.index }}</button>
+      </template>
+</show-names>
+<nav-bar :name="name">
+  <template v-slot:left>
         <button>《</button>
       </template>
-<template v-slot:center>
+  <template v-slot:center>
         <button>=</button>
       </template>
-<template #right>
+  <template #right>
         <button>》</button>
       </template>
-<!-- v-slot: 缩写是 # -->
-<template #[name]>
+  <!-- v-slot: 缩写是 # -->
+  <template #[name]>
         <button>name</button>
       </template>
 </nav-bar>
@@ -29,17 +34,20 @@
 <script>
   import MySlotCpn from './MySlotCpn.vue'
   import NavBar from './NavBar.vue'
+  import ShowNames from './ShowNames.vue'
   import {
     computed
   } from 'vue'
   export default {
     components: {
       MySlotCpn,
-      NavBar
+      NavBar,
+      ShowNames
     },
     data() {
       return {
-        name: 'xxx'
+        name: 'xxx',
+        names: ['why', 'what', 'how', 'where']
       }
     },
     created() {},

@@ -13,6 +13,7 @@
 </template>
 <script>
   //   import AsyncCategory from './AsyncCategory.vue'
+  //   $refs $parent $root 获取对应根组件 vue3移除了$children
   import {
     defineAsyncComponent
   } from 'vue'

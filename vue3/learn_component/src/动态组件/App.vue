@@ -46,6 +46,12 @@
       itemclick(item) {
         this.currentTab = item
       }
+    },
+    activated() {
+      console.log('activated')
+    },
+    deactivated() {
+      console.log('deactivated')
     }
   }
 </script>

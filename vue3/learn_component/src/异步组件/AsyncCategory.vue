@@ -1,15 +1,17 @@
 <template>
-  <div>about</div>
-  <button @click="counter++">{{ counter }}</button>
+  <div id="app">
+    async
+    {{ message }}
+  </div>
 </template>
 <script>
   export default {
-    name: 'about',
     data() {
       return {
-        counter: 0
+        message: 'xxx'
       }
     },
+    components: {},
     created() {},
     methods: {}
   }

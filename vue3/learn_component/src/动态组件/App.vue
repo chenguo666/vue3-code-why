@@ -20,7 +20,7 @@
     </template> -->
 <!-- 2 动态组件-->
 <!-- <component :is="currentTab" name="xxx" :age="18"></component> -->
-<keep-alive>
+<keep-alive include="about">
   <component :is="currentTab"></component>
 </keep-alive>
 </div>

@@ -3,23 +3,17 @@
     <div>
       <button @click="toggle">显示/隐藏</button>
     </div>
-    <transition name="why" mode="out-in" :appear="true">
-      <component :is="isShow ? 'home' : 'about'"></component>
+    <transition name="why" type="transition">
+      <h2 class="title" v-if="isShow">hello world</h2>
     </transition>
   </div>
 </template>
 <script>
-  import home from './pages/Home.vue'
-  import about from './pages/About.vue'
   export default {
     data() {
       return {
         isShow: true
       }
-    },
-    components: {
-      home,
-      about
     },
     methods: {
       toggle() {

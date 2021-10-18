@@ -3,13 +3,12 @@
     xxxxxxx
     {{ message }}
     {{ state.counter }}
-    aa{{ a }}aa
     <button @click="increment">+</button>
     <button @click="decrement">-</button>
   </div>
 </template>
 <script>
-import { reactive, ref, readonly } from 'vue'
+import { reactive } from 'vue'
 export default {
   // 有哪些参数 props 父组件传递过来的属性
   //有什么样的返回值
@@ -19,22 +18,13 @@ export default {
     const state = reactive({
       counter: 100
     })
-    // ref的包只能是浅层解包
-    let a = ref(100)
-    let readonlya = readonly(a)
-    let aaa = 'xxxx'
-    let readaaa = readonly(aaa)
     const increment = () => {
       state.counter++
-      a.value++
-      readonlya.value++
-      readaaa = 'xxxxxxxx'
-      console.log(state.counter, a.value, readonlya.value, readaaa)
+      console.log(state.counter)
     }
     return {
       message: 'xxxxxx',
       state,
-      a,
       increment
     }
   }

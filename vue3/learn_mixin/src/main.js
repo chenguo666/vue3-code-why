@@ -13,10 +13,16 @@ import App from './10 vue自定义指令/App.vue'
 const app = createApp(App)
   // 会混入每个对象 全局的
 app.mixin({
-  data() {
-    return {
-      message: '00000000'
+    data() {
+      return {
+        message: '00000000'
+      }
     }
-  }
-})
+  })
+  // app.directive('focus', {
+  //   mounted(el, bindings, vnode, preVnode) {
+  //     console.log(111)
+  //     el.focus()
+  //   }
+  // })
 app.mount('#app')

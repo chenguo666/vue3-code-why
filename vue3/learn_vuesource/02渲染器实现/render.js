@@ -35,3 +35,12 @@ const mount = (vnode, container) => {
   // 4 container
   container.appendChild(el)
 }
+const patch = (n1, n2) => {
+  console.log(123)
+    // diff算法
+  if (n1.tag !== n2.tag) {
+    const n1Elparent = n1.el.parentElement
+    n1Elparent.removeChild(n1.el)
+    mount(n2, n1Elparent)
+  } else {}
+}

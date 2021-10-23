@@ -16,6 +16,7 @@ const mount = (vnode, container) => {
     for (const key in vnode.props) {
       const value = vnode.props[key]
       if (key.startsWith('on')) {
+        console.log('on1')
         el.addEventListener(key.slice(2).toLowerCase(), value)
       } else {
         el.setAttribute(key, value)
@@ -36,7 +37,7 @@ const mount = (vnode, container) => {
   container.appendChild(el)
 }
 const patch = (n1, n2) => {
-  console.log(123)
+  console.log(n1, n2)
     // diff算法
   if (n1.tag !== n2.tag) {
     const n1Elparent = n1.el.parentElement
@@ -48,12 +49,14 @@ const patch = (n1, n2) => {
       //   处理props
     const oldProps = n1.props || {}
     const newProps = n2.props || {}
+    console.log(newProps)
       // 获取所有的newprops添加到el
     for (const key in newProps) {
-      const oldValue = oldValue[key]
+      const oldValue = oldProps[key]
       const newValue = newProps[key]
       if (newValue !== oldValue) {
         if (key.startsWith('on')) {
+          console.log('on2')
           el.addEventListener(key.slice(2).toLowerCase(), newValue)
         } else {
           el.setAttribute(key, newValue)
@@ -62,13 +65,12 @@ const patch = (n1, n2) => {
     }
     // 删除旧的props
     for (const key in oldProps) {
+      if (key.startsWith('on')) {
+        const value = oldProps[key]
+        el.removeEventListener(key.slice(2).toLowerCase(), value)
+      }
       if (!(key in newProps)) {
-        if (key.startsWith('on')) {
-          const value = oldProps[key]
-          el.removeEventListener(key.slice(2).toLowerCase(), value)
-        } else {
-          el.removeAttribute(key)
-        }
+        el.removeAttribute(key)
       }
     }
     // 处理 children
@@ -93,7 +95,7 @@ const patch = (n1, n2) => {
       } else {
         // 前面有相同的节点的原生进行patch 操作
         const commonLength = Math.min(oldChildren.length, newChildren.length)
-        for (let i = 0; i < commonLength.length; i++) {
+        for (let i = 0; i < commonLength; i++) {
           patch(oldChildren[i], newChildren[i])
         }
         // newChildren>oldChildren

@@ -42,26 +42,26 @@ function getDep(target, key) {
   return dep
 }
 // vue2
-function reactive(raw) {
-  // 数据劫持
-  Object.keys(raw).forEach(key => {
-    const dep = getDep(raw, key)
-    let value = raw[key]
-    Object.defineProperty(raw, key, {
-      get() {
-        dep.depend()
-        return value
-      },
-      set(newValue) {
-        if (value !== newValue) {
-          value = newValue
-          dep.notify()
-        }
-      }
-    })
-  })
-  return raw
-}
+// function reactive(raw) {
+//   // 数据劫持
+//   Object.keys(raw).forEach(key => {
+//     const dep = getDep(raw, key)
+//     let value = raw[key]
+//     Object.defineProperty(raw, key, {
+//       get() {
+//         dep.depend()
+//         return value
+//       },
+//       set(newValue) {
+//         if (value !== newValue) {
+//           value = newValue
+//           dep.notify()
+//         }
+//       }
+//     })
+//   })
+//   return raw
+// }
 // vue3
 function reactive(raw) {
   return new Proxy(raw, {
@@ -78,26 +78,26 @@ function reactive(raw) {
   })
 }
 
-const dep = new Dep()
+// const dep = new Dep()
 
-const info = reactive({ counter: 200, name: 'why' })
-const foo = reactive({ height: 1.88 })
-watchEffect(function() {
-  console.log(info.counter * 2, info.name)
-})
-watchEffect(function() {
-  console.log(info.counter * info.counter)
-})
-watchEffect(function() {
-  console.log(info.counter * 10, info.name)
-})
-watchEffect(function() {
-    console.log(foo.height)
-  })
-  // info.counter++
+// const info = reactive({ counter: 200, name: 'why' })
+// const foo = reactive({ height: 1.88 })
+// watchEffect(function() {
+//   console.log(info.counter * 2, info.name)
+// })
+// watchEffect(function() {
+//   console.log(info.counter * info.counter)
+// })
+// watchEffect(function() {
+//   console.log(info.counter * 10, info.name)
+// })
+// watchEffect(function() {
+//     console.log(foo.height)
+//   })
+//   // info.counter++
 
-//   dep.notify()
+// //   dep.notify()
 
-info.name = 'chan'
-foo.height = 4
-  // dep.notify()
+// info.name = 'chan'
+// foo.height = 4
+// dep.notify()

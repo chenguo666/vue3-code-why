@@ -14,6 +14,7 @@
 10.19 17
 10.20 18
 10.21 19
+10.22 20 讲源码的 看不懂
 
 webpack5 之前 加载资源需要 loader raw-loader url-loader file-loader
 webpack5 之后 可以直接使用资源模块类型 （asset module type）来替代上面的 loader

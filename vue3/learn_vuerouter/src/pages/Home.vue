@@ -1,7 +1,10 @@
 <template>
   <div>
     home
-    <router-link to="/home/show">show</router-link>
+    <router-link to="/home/show">
+      <button>首页</button>
+      <button>2233</button>
+    </router-link>
     <router-link to="/home/list">list</router-link>
     <button @click="gohome">首页</button>
     <button @click="goabout">关于</button>

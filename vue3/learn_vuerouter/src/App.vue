@@ -15,7 +15,15 @@
   <router-link to="/about">about</router-link>
   <router-link to="/user/abc">user</router-link>
   <router-link to="/xxx">uxxx</router-link>
-  <router-view></router-view>
+
+  <router-view v-slot="props">
+    <!-- appear初次使用也有效果  mode 动画模式-->
+    <transition name="why" mode="out-in" :appear="true">
+      <keep-alive>
+        <component :is="props.Component"></component>
+      </keep-alive>
+    </transition>
+  </router-view>
 </template>
 
 <script>
@@ -41,5 +49,15 @@
   
   .router-link-active {
     color: red;
+  }
+  
+  .why-enter-from,
+  .why-leave-to {
+    opacity: 0;
+  }
+  
+  .why-enter-active,
+  .why-leave-active {
+    transition: opacity 1s ease;
   }
 </style>

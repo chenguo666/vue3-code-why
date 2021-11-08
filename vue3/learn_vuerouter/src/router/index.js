@@ -78,4 +78,23 @@ router.addRoute('home', {
   // 1. 添加相同的路由
   // 2. removeRoute 传入路由名称
   // 3. 通过addRoute方法的返回值回调 如果路由存在的话
+
+//   路由导航守卫 beforeEach
+// 返回值问题
+/*
+false 不跳转
+undefined 或 不写 默认导航
+字符串 路径 跳到对应的路径中
+对象 类似于 router.push({path:'/login',query:})
+*/
+// 不建议再用next
+router.beforeEach((to, from) => {
+  //
+  // const token = window.localStorage.getItem('token')
+  // if (!token) {
+  //     return '/login'
+  // }
+  console.log('to,from', to, from)
+})
+
 export default router

@@ -18,6 +18,7 @@
 10.25 21 讲源码的 前面看不懂 后面半节课是讲路由的
 10.25 22
 10.28 23 后面介绍 devtool 工具
+11.09 24 vuex
 webpack5 之前 加载资源需要 loader raw-loader url-loader file-loader
 webpack5 之后 可以直接使用资源模块类型 （asset module type）来替代上面的 loader
 

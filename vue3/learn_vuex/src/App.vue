@@ -1,8 +1,9 @@
 <template>
   <!-- <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+  <home></home>
   <div>
-    {{ counter }}--{{ $store.state.counter }}
+    app {{ $store.state.counter }}
     <button @click="increment">+</button>
     <button @click="decrement">-</button>
   </div>
@@ -10,9 +11,12 @@
 
 <script>
   // import HelloWorld from './components/HelloWorld.vue'
-
+  import home from './pages/home.vue'
   export default {
     name: 'App',
+    components: {
+      home
+    },
     data() {
       return {
         counter: 0

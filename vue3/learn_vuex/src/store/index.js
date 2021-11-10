@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-
+import { INCREMENT_N } from './mutations-types'
 export default createStore({
   state: {
     counter: 0,
@@ -36,6 +36,9 @@ export default createStore({
   mutations: {
     increment(state) {
       state.counter++
+    },
+    [INCREMENT_N](state, n) {
+      state.counter += n
     },
     decrement(state) {
       state.counter--

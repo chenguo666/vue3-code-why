@@ -1,23 +1,32 @@
 <template>
   <h1>home:{{ $store.state.counter }}</h1>
+  {{ $store.state.rootCounter }}
+  {{ $store.state.home.homeCounter }}
+  {{ $store.state.user.userCounter }}
   <br />
-  <button @click="increment">+</button>
+  <button @click="addit">+</button>
+  <!-- <button @click="increment">+</button>
   <button @click="decrement">-</button>
+  <button @click="incrementAction">==+</button> -->
 </template>
 <script>
   import {
-    useStore,
-    mapMutations
+    useStore
   } from 'vuex'
   import {
-    INCREMENT_N
-  } from '../store/mutations-types.js'
+    onMounted
+  } from 'vue'
   export default {
     setup() {
       const store = useStore()
-      const storeMutations = mapMutations(['increment', 'decrement'])
+      onMounted(() => {
+        store.commit('rootIncrement')
+      })
+      const addit = () => {
+        store.commit('rootIncrement')
+      }
       return {
-        ...storeMutations
+        addit
       }
     }
   }

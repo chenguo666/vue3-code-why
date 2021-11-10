@@ -44,6 +44,13 @@ export default createStore({
       state.counter--
     }
   },
-  actions: {},
+  actions: {
+    incrementAction(context) {
+      // 可以执行异步操作 调用接口之类
+      setTimeout(() => {
+        context.commit('increment')
+      }, 1000)
+    }
+  },
   modules: {}
 })

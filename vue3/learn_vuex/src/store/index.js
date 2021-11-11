@@ -9,6 +9,12 @@ export default createStore({
   mutations: {
     rootIncrement(state) {
       state.rootCounter++
+    },
+    increment(state) {
+      state.counter++
+    },
+    decrement(state) {
+      state.counter--
     }
   },
   modules: {

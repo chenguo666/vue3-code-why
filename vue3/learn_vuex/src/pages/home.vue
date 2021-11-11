@@ -8,6 +8,7 @@
   <!-- <button @click="increment">+</button>
   <button @click="decrement">-</button>
   <button @click="incrementAction">==+</button> -->
+  <!-- home:{{ $store.getters['home/homeCounterx'] }}00 -->
 </template>
 <script>
   import {

@@ -6,6 +6,8 @@
     app {{ $store.state.counter }}
     <button @click="increment">+</button>
     <button @click="decrement">-</button>
+
+    home:{{ $store.getters['home/homeCounterx'] }}00
   </div>
 </template>
 

@@ -91,4 +91,68 @@ function sums(num1: number, num2: number): number {
 }
 sums(1, 2)
 
+// 对象类型 ?表示可选 本质上是undefined 的联合类型
+
+// function printPoint(point: { x: number; y: number; z: number|undefined }) {
+function printPoint(point: { x: number; y: number; z?: number }) {
+  console.log(point.x, point.y)
+}
+printPoint({ x: 10, y: 20 })
+printPoint({ x: 10, y: 20, z: 21 })
+
+// 联合类型 使用的时候要特别小心
+function printID(id: number | string) {
+  // narrow 缩小
+  console.log(id)
+}
+// 可选类型和联合类型
+
+// 类型 别名 type(type alias) 用于定义类型别名
+type UnionType = string | number | boolean
+function printiid(id: UnionType) {
+  console.log(id)
+}
+
+// 类型断言 as
+const el = document.getElementById('why') as HTMLElement
+
+const messagexx = 'adfasd'
+const numxx: number = messagexx as any as number
+
+// 非空类型断言 !
+function printMessage(message?: string) {
+  console.log(message!.length)
+}
+// 可选链 ?. 当对象的属性不存在就会返回 undefined
+type Person = {
+  name: string
+  friend?: {
+    name: string
+    age?: number
+  }
+}
+const infosome: Person = {
+  name: 'why',
+  friend: {
+    name: 'kobe'
+  }
+}
+console.log(infosome?.friend?.age)
+
+// ?? !!
+// !! 将其他类型转化为boolean类型
+const messagesx = 'asdf'
+const falgg = Boolean(messagesx)
+const flagg = !!messagesx //true
+// ?? 空值合并操作符 es11逻辑操作符 当操作符左边是null或者undefined时 返回右侧操作数 否则返回左侧
+
+let messg: string | null = 'sadf'
+const contetnt = messg ?? 'heheh'
+// const contetnt=messg?messg:'heheh'
+
+// 字面量核心  值和类型要保持一致 字面量的意义就是必须结合联合类型使用
+const messagees: 'xxx' = 'xxx'
+const align: 'left' | 'right' | 'center' = 'left'
+// align = 'right'
+// align = 'center'
 export {}

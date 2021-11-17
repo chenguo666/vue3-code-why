@@ -23,6 +23,7 @@
 11.11 26 ts
 11.15 27 ts
 11.16 28 ts
+11.17 29 ts
 webpack5 之前 加载资源需要 loader raw-loader url-loader file-loader
 webpack5 之后 可以直接使用资源模块类型 （asset module type）来替代上面的 loader
 

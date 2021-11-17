@@ -29,8 +29,8 @@ const names2: string[] = ['a', 'b', 'c', 'd', 'e', 'f']
 
 // object对象的使用
 const info = {
-  name: 'why',
-  age: 18
+    name: 'why',
+    age: 18
 }
 
 // null和undefined
@@ -40,8 +40,8 @@ const n2: undefined = undefined
 const title1 = Symbol('title')
 const title2 = Symbol('title')
 const infos = {
-  [title1]: 'xxx',
-  [title2]: 'aaa'
+    [title1]: 'xxx',
+    [title2]: 'aaa'
 }
 
 // typescript类型 any
@@ -55,27 +55,27 @@ aaa = true
 let fa: boolean = true
 let result: unknown
 if (fa) {
-  result = aaa
+    result = aaa
 } else {
-  result = info
+    result = info
 }
 // let go:string = result 会报错 any不会
 
 // void 指定一个函数没有返回值
 function sum(num1: number, num2: number): void {
-  console.log(num1 + num2)
+    console.log(num1 + num2)
 }
 sum(20, 30)
 // sum('sdaf', 'ga')
 
 // never 表示永远不会发生值的类型
 function fxx(): never {
-  // 死循环 永远不会有返回值
-  while (true) {}
+    // 死循环 永远不会有返回值
+    while (true) { }
 }
 // 有异常
 function bxx(): never {
-  throw new Error()
+    throw new Error()
 }
 
 // tuple类型 元组类型 多种元素的集合 特定 可以知道每个类型
@@ -87,7 +87,7 @@ const namessss = infosb[1]
 // 函数参数类型和返回值类型
 
 function sums(num1: number, num2: number): number {
-  return num1 * num2
+    return num1 * num2
 }
 sums(1, 2)
 
@@ -95,22 +95,22 @@ sums(1, 2)
 
 // function printPoint(point: { x: number; y: number; z: number|undefined }) {
 function printPoint(point: { x: number; y: number; z?: number }) {
-  console.log(point.x, point.y)
+    console.log(point.x, point.y)
 }
 printPoint({ x: 10, y: 20 })
 printPoint({ x: 10, y: 20, z: 21 })
 
 // 联合类型 使用的时候要特别小心
 function printID(id: number | string) {
-  // narrow 缩小
-  console.log(id)
+    // narrow 缩小
+    console.log(id)
 }
 // 可选类型和联合类型
 
 // 类型 别名 type(type alias) 用于定义类型别名
 type UnionType = string | number | boolean
 function printiid(id: UnionType) {
-  console.log(id)
+    console.log(id)
 }
 
 // 类型断言 as
@@ -121,21 +121,21 @@ const numxx: number = messagexx as any as number
 
 // 非空类型断言 !
 function printMessage(message?: string) {
-  console.log(message!.length)
+    console.log(message!.length)
 }
 // 可选链 ?. 当对象的属性不存在就会返回 undefined
 type Person = {
-  name: string
-  friend?: {
     name: string
-    age?: number
-  }
+    friend?: {
+        name: string
+        age?: number
+    }
 }
 const infosome: Person = {
-  name: 'why',
-  friend: {
-    name: 'kobe'
-  }
+    name: 'why',
+    friend: {
+        name: 'kobe'
+    }
 }
 console.log(infosome?.friend?.age)
 
@@ -155,4 +155,58 @@ const messagees: 'xxx' = 'xxx'
 const align: 'left' | 'right' | 'center' = 'left'
 // align = 'right'
 // align = 'center'
-export {}
+
+// 类型缩小 type narrowing
+// 常见的类型保护
+// typeof
+type idyupes = number | string
+function printitID(id: idyupes) {
+    if (typeof id === 'string') {
+        console.log(id.toUpperCase())
+    } else {
+        console.log(id)
+    }
+}
+// 平等缩小 === !==
+type Direction = 'left' | 'right' | 'top' | 'bottom'
+function printDirection(direction: Direction) {
+    if (direction === 'left') {
+        console.log(direction)
+    }
+}
+// instanceof
+
+function printTime(time: string | Date) {
+    if (time instanceof Date) {
+        console.log(time.toUTCString())
+    }else {
+        console.log(time)
+    }
+}
+
+// in
+type Fish={
+    // 函数类型
+    swimming:()=>void
+}
+type Dog={
+    running:()=>void
+}
+
+function walk(animal:Fish|Dog){
+    if ('swimming' in animal) {
+        animal.swimming()
+    } else {
+        animal.running()
+    }
+}
+const fish:Fish={
+    swimming(){
+        console.log('swimming');
+        
+    }
+}
+walk(fish)
+
+
+export { }

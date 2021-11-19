@@ -25,4 +25,13 @@ function add1(num1:any,num2:any):any{
 add1(10,20)
 add1('10','20')
 
+function getLength(args:string):number
+function getLength(args:any[]):number
+
+function getLength(args:any):number{
+    return args.length
+}
+console.log(getLength('absd'));
+console.log(getLength([1,2,123,3]));
+
 

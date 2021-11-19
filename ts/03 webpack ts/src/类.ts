@@ -42,3 +42,36 @@ const stu = new Student('chan',22,1)
 console.log(stu.name,stu.age);
 stu.eating()
 
+// 类的多态
+
+class Animal{
+    action(){
+        console.log('running');
+        
+    }
+}
+class Dog extends Animal {
+    action(){
+        console.log('dog runnning');
+        
+    }
+}
+class Fish extends Animal {
+    action(){
+        console.log('fish swimming');
+        
+    }
+}
+function makeActions(animals:Animal[]){
+    animals.forEach(item=>{
+        item.action()
+    })
+}
+// 父类引用指向子类对象
+makeActions([new Dog(),new Fish()])
+
+// 类的成员修饰符
+
+// plblic private protected
+
+

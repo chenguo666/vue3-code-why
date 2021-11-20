@@ -74,4 +74,71 @@ makeActions([new Dog(),new Fish()])
 
 // plblic private protected
 
+// 属性只读 赋值后不可修改  属性本身不可修改 但是内部的属性可以修改
+class Persona{
+//    readonly name:string='adf'
+   private _name:string
+   constructor(name:string){
+       this._name = name
+   }
+//    访问器
+// setter getter
+    set name(newname){
+        this._name = newname
+    }
+    get name(){
+        return this._name
+    }
+}
+const p= new Persona('xxx')
+p.name = 'xxxx'
+console.log(p.name);
 
+// p.name='xx'
+
+// 抽象类 abstract 可以没有实现体 抽象函数必须在抽象类里
+abstract class Shapes{
+    abstract getArea():number
+}
+class Rectangle extends Shapes{
+    private width:number
+    private height:number
+    constructor(width:number,height:number){
+        super()
+        this.width =width
+        this.height =height
+    }
+    getArea(){
+        return this.width*this.height
+    }
+}
+
+// 类的类型
+class Pee{
+    name:string='asdf'
+}
+const ps = new Pee()
+const p1:Pee={
+    name:'why'
+}
+
+// 接口
+
+interface InfoType{
+    name:string
+    age:number
+}
+const aainfo:InfoType={
+    name:'why',
+    age:18
+}
+// 定义索引类型
+interface IndexLanguage{
+    [index:number]:string
+}
+const frontLanguage:IndexLanguage={
+    1:'sdaf',
+    2:'sdaf',
+    3:'sdaf',
+    4:'sdaf',
+}

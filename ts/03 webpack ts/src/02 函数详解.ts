@@ -10,7 +10,7 @@ bar(foo)
 
 // 定义常量时编写函数的类型
 type addFnType=(num1:number,num2:number)=>void
-const add:addFnType = (num1:number,num2:number)=>{
+const adds:addFnType = (num1:number,num2:number)=>{
     return num1+num2
 }
 // 函数类型的案例

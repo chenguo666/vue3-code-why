@@ -17,3 +17,13 @@ declare class  Person {
 // 导入图片也会报错 
 declare module '*.jpg'
 declare module '*.png'
+// declare module '*.vue'{
+//     import { defineComponent } from 'vue'
+//     const component:defineComponent({
+
+//     })
+// }
+// 声明命名空间
+declare namespace $ {
+    export function ajax(setting:any):any
+}
